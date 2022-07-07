@@ -88,8 +88,8 @@ export const ModalEditTask = ({ isOpen, onClose, oldTask }: IModalEditTask) => {
 
               <option value={"Correção de prova"}>Correção de prova</option>
 
-              <option value={"Correção de trabalhos/atividades"}>
-                Correção de trabalhos/atividades
+              <option value={"Correção de atividades"}>
+                Correção de atividades
               </option>
 
               <option value={"Reunião de pais"}>Reunião de pais</option>

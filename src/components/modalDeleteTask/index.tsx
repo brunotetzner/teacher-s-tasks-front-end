@@ -38,7 +38,7 @@ export function ModalDeleteTask({ isOpen, onClose, taskId }: IModalDeleteTask) {
           textAlign="center"
           fontSize="30px"
           paddingBottom="1%"
-          color="#5B736E"
+          color="#000000"
           borderRadius="10px 10px 0 0"
         >
           Excluir tarefa

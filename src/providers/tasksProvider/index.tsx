@@ -8,6 +8,7 @@ import {
 import { Itask } from "../../interfaces/tasks";
 import { useToast } from "@chakra-ui/react";
 import { api } from "../../services/api";
+
 interface tasksProps {
   children: ReactNode;
 }
@@ -37,7 +38,17 @@ export function TasksProvider({ children }: tasksProps) {
     api
       .get("/tasks")
       .then((response) => setTasks(response.data))
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error(err);
+        toast({
+          title: "Ocorreu um erro ao carregar suas tarefas",
+          description:
+            "Recarregue a pagína e tente novamente mais tarde caso o erro persista",
+          status: "error",
+          duration: 9000,
+          isClosable: true,
+        });
+      });
   };
 
   useEffect(() => {
@@ -47,22 +58,78 @@ export function TasksProvider({ children }: tasksProps) {
   const postTask = (task: Itask) => {
     api
       .post("/tasks", task)
-      .then(() => getAllTasks())
-      .catch((err) => console.error(err));
+      .then(() => {
+        getAllTasks();
+        toast({
+          title: "Tarefa criada com sucesso!",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
+      })
+      .catch((err) => {
+        console.error(err);
+        toast({
+          title: "Ocorreu um erro ao salvar a tarefa",
+          description:
+            "Revise os dados e tente novamente mais tarde caso o erro persista",
+          status: "error",
+          duration: 9000,
+          isClosable: true,
+        });
+      });
   };
 
   const updateTask = (task: Partial<Itask>, taskId: number) => {
     api
       .patch(`tasks/${taskId}`, task)
-      .then(() => getAllTasks())
-      .catch((err) => console.error(err));
+      .then(() => {
+        getAllTasks();
+        toast({
+          title: "Tarefa editada com sucesso!",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
+      })
+      .catch((err) => {
+        console.error(err);
+        toast({
+          title: "Ocorreu um erro ao editar a tarefa",
+          description:
+            "Revise os dados e tente novamente mais tarde caso o erro persista",
+          status: "error",
+          duration: 9000,
+          isClosable: true,
+        });
+      });
   };
 
   const deleteTask = (taskId: number) => {
     api
       .delete(`tasks/${taskId}`)
-      .then(() => getAllTasks())
-      .catch((err) => console.error(err));
+      .then(() => {
+        getAllTasks();
+
+        toast({
+          title: "Tarefa apagada",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
+      })
+      .catch((err) => {
+        console.error(err);
+
+        toast({
+          title: "Ocorreu um erro ao apagar a tarefa",
+          description:
+            "Revise os dados e tente novamente mais tarde caso o erro persista",
+          status: "error",
+          duration: 9000,
+          isClosable: true,
+        });
+      });
   };
 
   return (

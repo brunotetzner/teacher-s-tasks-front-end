@@ -7,6 +7,12 @@ export const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media (max-width: 500px) {
+    flex-direction: column;
+    width: 100vw;
+    height: 18vh;
+    padding: 0;
+  } ;
 `;
 
 export const LogoDiv = styled.div`
@@ -21,10 +27,21 @@ export const LogoDiv = styled.div`
     return props.theme.yellow.primary;
   }};
   border-radius: 0 0 30px 0px;
+
+  @media (max-width: 500px) {
+    width: 100%;
+    height: 50%;
+
+    border-radius: 0;
+    padding-bottom: 2%;
+    padding-top: 1%;
+  } ;
 `;
 
 export const Logo = styled.img`
-  height: "50%";
+  @media (max-width: 500px) {
+    height: 100%;
+  } ;
 `;
 
 export const PageSearch = styled.section`

@@ -65,14 +65,14 @@ export const ModalCreateTask = ({ isOpen, onClose }: IModalEditTask) => {
         <ModalBody>
           <PageForm onSubmit={handleSubmit(onProductRegister)}>
             <Select id="4" {...register("title")}>
-              <option value={""}>Novo titulo(opcional)</option>
+              <option value={""}>Titulo</option>
 
               <option value={"Aplicação de prova"}>Aplicação de prova</option>
 
               <option value={"Correção de prova"}>Correção de prova</option>
 
-              <option value={"Correção de trabalhos/atividades"}>
-                Correção de trabalhos/atividades
+              <option value={"Correção de atividades"}>
+                Correção de atividades
               </option>
 
               <option value={"Reunião de pais"}>Reunião de pais</option>
