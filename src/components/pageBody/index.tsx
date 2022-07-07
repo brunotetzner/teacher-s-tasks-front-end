@@ -13,7 +13,7 @@ import { Itask } from "../../interfaces/tasks";
 import { ModalEditTask } from "../modalEditTask";
 import { ModalCreateTask } from "../modalCreateTask";
 export const PageBody = () => {
-  const { tasks } = useTasks();
+  const { tasks, filteredTasks } = useTasks();
   const [task, setTask] = useState<Itask>({
     id: 117,
     title: "finish work",
@@ -61,7 +61,7 @@ export const PageBody = () => {
         <ButtonAddTask onClick={onModalCreateOpen}>+</ButtonAddTask>
       </TitleSection>
       <ContainerCards>
-        {tasks.map((task) => (
+        {filteredTasks.map((task) => (
           <CardTask
             id={task.id}
             title={task.title}

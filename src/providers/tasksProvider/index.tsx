@@ -19,6 +19,8 @@ interface UseTaskProviderData {
   postTask: (task: Itask) => void;
   updateTask: (task: Partial<Itask>, taskId: number) => void;
   deleteTask: (taskId: number) => void;
+  filteredTasks: Itask[];
+  setFilteredTasks: any;
 }
 
 export const TasksContext = createContext<UseTaskProviderData>(
@@ -32,6 +34,10 @@ export const useTasks = () => {
 
 export function TasksProvider({ children }: tasksProps) {
   const [tasks, setTasks] = useState<Itask[]>([]);
+  const [filteredTasks, setFilteredTasks] = useState<Itask[] | any>(tasks);
+  useEffect(() => {
+    setFilteredTasks(tasks);
+  }, [tasks]);
   const toast = useToast();
 
   const getAllTasks = () => {
@@ -140,6 +146,8 @@ export function TasksProvider({ children }: tasksProps) {
         postTask,
         updateTask,
         deleteTask,
+        filteredTasks,
+        setFilteredTasks,
       }}
     >
       {children},

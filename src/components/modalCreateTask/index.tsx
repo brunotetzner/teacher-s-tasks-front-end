@@ -39,7 +39,6 @@ export const ModalCreateTask = ({ isOpen, onClose }: IModalEditTask) => {
   const onProductRegister = (task: Itask) => {
     postTask(task);
   };
-  console.log(errors);
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
