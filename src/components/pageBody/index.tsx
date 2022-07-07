@@ -8,9 +8,10 @@ import { useTasks } from "../../providers/tasksProvider";
 import { CardTask } from "../cardTask/Index";
 import { ModalDeleteTask } from "../modalDeleteTask";
 import { useDisclosure } from "@chakra-ui/react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Itask } from "../../interfaces/tasks";
-
+import { ModalEditTask } from "../modalEditTask";
+import { ModalCreateTask } from "../modalCreateTask";
 export const PageBody = () => {
   const { tasks } = useTasks();
   const [task, setTask] = useState<Itask>({
@@ -19,10 +20,6 @@ export const PageBody = () => {
     description: "finish work to students",
     finish_date: "25/12/2022",
   });
-
-  useEffect(() => {
-    console.log("NEW TASK LENGTH", tasks.length);
-  }, [tasks]);
 
   const {
     isOpen: isModalEditOpen,
@@ -36,6 +33,12 @@ export const PageBody = () => {
     onClose: onModalDeleteClose,
   } = useDisclosure();
 
+  const {
+    isOpen: isModalCreateOpen,
+    onOpen: onModalCreateOpen,
+    onClose: isModalCreateClose,
+  } = useDisclosure();
+
   return (
     <PageArticle>
       <ModalDeleteTask
@@ -43,8 +46,19 @@ export const PageBody = () => {
         onClose={onModalDeleteClose}
         taskId={task.id}
       />
+      <ModalEditTask
+        isOpen={isModalEditOpen}
+        onClose={onModalEditClose}
+        oldTask={task}
+      />
+
+      <ModalCreateTask
+        isOpen={isModalCreateOpen}
+        onClose={isModalCreateClose}
+      />
       <TitleSection>
-        Minhas tarefas <ButtonAddTask>+</ButtonAddTask>
+        Minhas tarefas
+        <ButtonAddTask onClick={onModalCreateOpen}>+</ButtonAddTask>
       </TitleSection>
       <ContainerCards>
         {tasks.map((task) => (

@@ -72,6 +72,9 @@ export const TaskDateDiv = styled(Info)`
 `;
 
 export const TextParagraph = styled.p`
+  font-size: 15px;
+  width: 100%;
+  padding: 10px;
   color: ${function (props) {
     return props.theme.black.primary;
   }};

@@ -42,7 +42,6 @@ export const CardTask = ({
   };
 
   const handleClickModalDelete = () => {
-    console.log("go@!");
     setTask({
       title,
       description,
@@ -55,11 +54,7 @@ export const CardTask = ({
     <ContainerCard>
       <CardHeader>{title}</CardHeader>
       <CardBody>
-        <TextsDiv>
-          <Info>
-            <TextParagraph>{description}</TextParagraph>
-          </Info>
-        </TextsDiv>
+        <TextParagraph>{description}</TextParagraph>
 
         <TaskDateDiv>
           <label>entrega:</label>
@@ -68,7 +63,7 @@ export const CardTask = ({
       </CardBody>
       <Footer>
         <div>
-          <ButtonFooter>
+          <ButtonFooter onClick={handleClickModalEdit}>
             <RiPencilFill />
           </ButtonFooter>
         </div>
