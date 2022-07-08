@@ -32,7 +32,7 @@ export const ModalEditTask = ({ isOpen, onClose, oldTask }: IModalEditTask) => {
   });
 
   const { updateTask } = useTasks();
-  const onProductRegister = (task: Partial<Itask>) => {
+  const onTaskRegister = (task: Partial<Itask>) => {
     if (task.description === "") {
       delete task.description;
     }
@@ -69,7 +69,7 @@ export const ModalEditTask = ({ isOpen, onClose, oldTask }: IModalEditTask) => {
         </ModalHeader>
         <ModalCloseButton marginRight="3%" marginTop="3%" color="black" />
         <ModalBody>
-          <PageForm onSubmit={handleSubmit(onProductRegister)}>
+          <PageForm onSubmit={handleSubmit(onTaskRegister)}>
             <Input
               {...register("description")}
               placeholder="Nova descrição(opcional)"

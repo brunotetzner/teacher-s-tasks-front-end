@@ -35,9 +35,7 @@ export const useTasks = () => {
 export function TasksProvider({ children }: tasksProps) {
   const [tasks, setTasks] = useState<Itask[]>([]);
   const [filteredTasks, setFilteredTasks] = useState<Itask[] | any>(tasks);
-  useEffect(() => {
-    setFilteredTasks(tasks);
-  }, [tasks]);
+
   const toast = useToast();
 
   const getAllTasks = () => {
@@ -60,6 +58,10 @@ export function TasksProvider({ children }: tasksProps) {
   useEffect(() => {
     getAllTasks();
   }, []);
+
+  useEffect(() => {
+    setFilteredTasks(tasks);
+  }, [tasks]);
 
   const postTask = (task: Itask) => {
     api

@@ -2,8 +2,6 @@ import {
   ContainerCard,
   CardHeader,
   CardBody,
-  TextsDiv,
-  Info,
   TextParagraph,
   TaskDateDiv,
   Footer,

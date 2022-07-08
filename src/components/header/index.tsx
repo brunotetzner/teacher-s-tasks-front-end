@@ -6,14 +6,14 @@ import {
   Input,
   ButtonSearch,
 } from "./styled";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import LogoImg from "../../assets/logo.svg";
 import { ImSearch } from "react-icons/im";
 import { useTasks } from "../../providers/tasksProvider";
-import { Itask } from "../../interfaces/tasks";
 import { useToast } from "@chakra-ui/react";
+
 export const Header = () => {
-  const { tasks, setFilteredTasks, filteredTasks } = useTasks();
+  const { tasks, setFilteredTasks } = useTasks();
   const [inputValue, setInputValue] = useState<string>("");
   const toast = useToast();
 
@@ -24,6 +24,8 @@ export const Header = () => {
         task.title.toLowerCase().includes(inputValue.toLowerCase())
       ) {
         return task;
+      } else {
+        return undefined;
       }
     });
     const removeUndefined = filterTasks.filter((task) => task !== undefined);

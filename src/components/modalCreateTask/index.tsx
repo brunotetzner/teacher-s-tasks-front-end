@@ -36,8 +36,9 @@ export const ModalCreateTask = ({ isOpen, onClose }: IModalEditTask) => {
   });
 
   const { postTask } = useTasks();
-  const onProductRegister = (task: Itask) => {
+  const onTaskRegister = (task: Itask) => {
     postTask(task);
+    onClose();
   };
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
@@ -62,7 +63,7 @@ export const ModalCreateTask = ({ isOpen, onClose }: IModalEditTask) => {
         </ModalHeader>
         <ModalCloseButton marginRight="3%" marginTop="3%" color="black" />
         <ModalBody>
-          <PageForm onSubmit={handleSubmit(onProductRegister)}>
+          <PageForm onSubmit={handleSubmit(onTaskRegister)}>
             <Select id="4" {...register("title")}>
               <option value={""}>Titulo</option>
 

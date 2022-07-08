@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  front-end:
+    container_name: teacher-s-tasks
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./src:/app/src
+    expose:
+      - 3000
+    ports:
+      - 3000:3000

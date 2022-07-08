@@ -13,7 +13,7 @@ import { Itask } from "../../interfaces/tasks";
 import { ModalEditTask } from "../modalEditTask";
 import { ModalCreateTask } from "../modalCreateTask";
 export const PageBody = () => {
-  const { tasks, filteredTasks } = useTasks();
+  const { filteredTasks } = useTasks();
   const [task, setTask] = useState<Itask>({
     id: 117,
     title: "finish work",
