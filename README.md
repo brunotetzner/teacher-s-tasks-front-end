@@ -1,46 +1,69 @@
-# Getting Started with Create React App
+# Teacher-s-tasks - Bruno Tetzner :boom:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## :hammer: Tecnologias utilizadas :wrench:
 
-## Available Scripts
+- HTML
+- Css
+- TypeScript
+- React
+- Styled components
+- Chakra-ui
+- React-icons
+- Yup
+- React hook form
 
-In the project directory, you can run:
+# Rodando o projeto
 
-### `yarn start`
+Essa aplicação usa o docker para evitar problemas com a versão entre as maquinas. Certifique-se de usar o node na versão 18.3.0 para assegurar que tudo funcionara corretamente. Também certifique-se de ter o docker e o docker compose instalados na sua maquina.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+> Observação: É possivel rodar o `yarn` ou o `npm install` para testar a aplicação. No entanto, é recomendavel o uso do docker.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Após ter baixado o repositório, Basta instalar as dependências do projeto.
 
-### `yarn test`
+### Instalando as dependências com docker(Recomendado).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+sudo docker compose up --build
+```
 
-### `yarn build`
+> Observação: É possível que a forma de rodar o docker seja diferente de acordo com a versão e a forma de instalação/configuração. Segue algumas alternativas para tentar rodar o docker.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+sudo docker-compose up --build
+docker-compose up --build
+docker compose up --build
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Para mais detalhes consulte a [documentação do docker](https://docs.docker.com/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Instalando as dependências com yarn.
 
-### `yarn eject`
+Rode o comando no terminal aberto no diretório do projeto:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+yarn
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Isso deverá instalar todas as dependências da aplicação. Para rodar a aplicação execute o comando:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+yarn start
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Instalando as dependências com npm.
 
-## Learn More
+Rode o comando no terminal aberto no diretório do projeto:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+npm install
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Isso deverá instalar todas as dependências da aplicação. Para rodar a aplicação execute o comando:
+
+```
+npm start
+```
+
+# Extras :boom:
+
+- [Figma da aplicação](<https://www.figma.com/file/FAIJWt6NsDU9a2rd8022Bm/teacher-s-tasks(assino-test)?node-id=0%3A1>)
